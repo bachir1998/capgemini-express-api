@@ -1,19 +1,8 @@
 //const express = require("express");
 import express from "express";
+import { contacts } from "./contacts.js";
 const app = express();
 
-const contacts = [
-  {
-    id: "1",
-    nom: "Bachir",
-    telephone: "0989905678",
-  },
-  {
-    id: "2",
-    nom: "Papis",
-    telephone: "0345678987",
-  },
-];
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
