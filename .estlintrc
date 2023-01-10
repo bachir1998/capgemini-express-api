@@ -1,6 +1,10 @@
 {
     "parserOptions":{
+        "ecmaVersion": "latest",
        "sourceType": "module"
+    },
+    "env":{
+        
     },
     
     "extends": ["prettier"],

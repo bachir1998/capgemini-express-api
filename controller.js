@@ -1,4 +1,6 @@
+import app from "./app.js";
 import { contacts } from "./data.js";
+import * as service from "./service.js";
 
 function getContacts(req, res) {
   res.status(200).json(contacts);
