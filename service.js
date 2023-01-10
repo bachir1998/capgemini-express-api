@@ -1,5 +1,7 @@
 import { contacts } from "./data.js";
 
 const ContactService = {
-  find: () => contacts.find({}),
+  find: (id) => contacts.find((user) => user.id === id),
 };
+
+export { ContactService };

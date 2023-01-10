@@ -8,7 +8,7 @@ function getContacts(req, res) {
 
 function getContact(req, res) {
   const id = req.params.id;
-  var contact = contacts.find((user) => user.id === id);
+  var contact = service.ContactService.find(id); //contacts.find((user) => user.id === id);
   res.status(200).json(contact);
 }
 
