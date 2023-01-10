@@ -49,9 +49,32 @@ describe("Should return id key in response ", () => {
       .get("/api/contacts/" + 1)
       .then((response) => {
         expect(response.statusCode).toBe(200);
-        expect(response.body.id).toBe(1);
+        expect(response.body.id).toBe("1");
         expect(response.body.nom).toBe("Bachir");
         expect(response.body.telephone).toBe("0989905678");
+      });
+  });
+});
+
+describe("Should return id key in response ", () => {
+  test("should be return undefined contactid ", () => {
+    request(app)
+      .get("/api/contacts/" + 9)
+      .then((response) => {
+        expect(response.statusCode).toBe(200);
+        expect(response.body.id).toBe(undefined);
+      });
+  });
+});
+
+describe("Should return id key in response ", () => {
+  test("should be return new contact", () => {
+    request(app)
+      .post("/api/addcontact")
+      .send({ id: "3", nom: "Aazaoui", telephone: "0789567878" })
+      .then((response) => {
+        expect(response.statusCode).toBe(200);
+        expect(response.body.id).toBe("3");
       });
   });
 });
