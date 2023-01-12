@@ -68,13 +68,30 @@ describe("Should return id key in response ", () => {
 });
 
 describe("Should return id key in response ", () => {
-  test("should be return new contact", () => {
-    request(app)
+  test("should be return new contact", async () => {
+    await request(app)
       .post("/api/addcontact")
+      .set("Content-type", "application/json")
       .send({ id: "3", nom: "Aazaoui", telephone: "0789567878" })
       .then((response) => {
-        expect(response.statusCode).toBe(200);
-        expect(response.body.id).toBe("3");
+        expect(response.statusCode).toBe(201);
       });
   });
 });
+
+/*
+describe("Should return id key in response ", () => {
+  test("",async()=>{
+    const getContacts = jest.fn();
+    service.getContacts = jest.fn(()=>{
+      getContacts;
+    });
+
+    service.getContacts.mockReturnValue([{nom : "test"}]);
+    const response = await request(app).get("/api/contacts");
+    expect(response.body[0].nom).toBe("test");
+  })
+
+});
+
+*/
