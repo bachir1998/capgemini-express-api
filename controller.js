@@ -15,7 +15,7 @@ function addContact(req, res) {
   try {
     const { nom, telephone } = req.body;
     const newContact = service.ContactService.save(nom, telephone);
-    res.status(200).json(newContact);
+    res.status(201).json(newContact);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

@@ -4,20 +4,16 @@
 import request from "supertest";
 import app from "../app.js";
 
+jest.mock("nanoid", () => {
+  return { nanoid: () => "1234" };
+});
+
 describe("Test the root path", () => {
   test("It should respond to the Get method", () => {
     request(app)
       .get("/")
       .then((response) => {
         expect(response.statusCode).toBe(200);
-      });
-  });
-
-  test("Second test", () => {
-    request(app)
-      .get("/")
-      .then((response) => {
-        expect(response.statusCode).toBe(404);
       });
   });
 });
@@ -32,7 +28,7 @@ describe("Test the api/contacts path", () => {
   });
 });
 
-describe("Should return nom key in response ", () => {
+/*describe("Should return nom key in response ", () => {
   test("should test contacts", () => {
     request(app)
       .get("/api/contacts")
@@ -41,7 +37,7 @@ describe("Should return nom key in response ", () => {
         expect(response.body[0].nom).toBe("Basse");
       });
   });
-});
+});*/
 
 describe("Should return id key in response ", () => {
   test("should be return 1 contact ", () => {

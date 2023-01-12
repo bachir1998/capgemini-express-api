@@ -1,5 +1,5 @@
 import { contacts } from "./data.js";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 
 const ContactService = {
   getContacts: () => {
